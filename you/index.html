@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BartoszChat</title>
+    <style>
+      body {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin: 50px auto;
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.chat-messages {
+    height: 300px;
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>BartoszChat</h2>
+        <div id="chatMessages" class="chat-messages"></div>
+        <form id="sendMessageForm">
+            <input type="text" id="messageInput" placeholder="Wpisz wiadomość..." autocomplete="off">
+            <button type="submit">Wyślij</button>
+        </form>
+    </div>
+    <script>
+    // Funkcja do dodawania wiadomości do interfejsu czatu
+function addMessageToChat(message) {
+    const chatMessages = document.getElementById("chatMessages");
+    const messageElement = document.createElement("div");
+    messageElement.textContent = message;
+    chatMessages.appendChild(messageElement);
+    // Automatyczne przewijanie na dół, aby zobaczyć nowe wiadomości
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+// Obsługa wysyłania wiadomości
+document.getElementById("sendMessageForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const messageInput = document.getElementById("messageInput");
+    const message = messageInput.value.trim();
+    if (message !== "") {
+        addMessageToChat("Ty: " + message);
+        // Tutaj możesz wysłać wiadomość do serwera lub innych klientów
+        messageInput.value = ""; // Wyczyść pole po wysłaniu wiadomości
+    }
+});
+    </script>
+</body>
+</html>
