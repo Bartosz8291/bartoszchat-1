@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Znajomi - BartoszChat</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Zarządzanie znajomymi - BartoszChat</h2>
+        <form id="addFriendForm">
+            <label for="friend_username">Nazwa użytkownika znajomego:</label>
+            <input type="text" id="friend_username" name="friend_username" required>
+            <input type="submit" value="Dodaj znajomego">
+        </form>
+        <div class="friends-list" id="friendsList">
+            <h3>Twoi znajomi:</h3>
+            <!-- Lista znajomych zostanie tutaj wygenerowana dynamicznie -->
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
